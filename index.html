@@ -3,1512 +3,644 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winds Cloud Technologies | DevOps & Cloud Solutions</title>
+    <title>IT Learning | Comprehensive Documentation Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #0f172a;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --light: #f8fafc;
-            --light-gray: #f1f5f9;
-            --gray: #64748b;
-            --gradient: linear-gradient(135deg, #2563eb, #8b5cf6);
-            --gradient-dark: linear-gradient(135deg, #1d4ed8, #7c3aed);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
         body {
-            background-color: #f8fafc;
-            color: var(--secondary);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
             overflow-x: hidden;
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.8rem;
-            text-decoration: none;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .logo i {
-            font-size: 2.2rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .cta-button {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: var(--shadow);
-        }
-        
-        .cta-button:hover {
-            background: var(--gradient-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(120deg, #e0f2fe, #ede9fe);
-            padding: 180px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 70%;
-            height: 140%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-right: 40px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: var(--shadow-lg);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        
-        .hero-highlight {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .outline-button {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .outline-button:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-item h3 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-        }
-        
-        .stat-item p {
-            font-size: 1rem;
-            color: var(--gray);
-        }
-        
-        /* Services Section */
-        .services {
-            background-color: white;
-            position: relative;
-        }
-        
-        .services::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8fafc" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,261.3C672,256,768,224,864,197.3C960,171,1056,149,1152,165.3C1248,181,1344,235,1392,261.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            z-index: 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-        
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 20px auto 0;
-            font-size: 1.1rem;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #e2e8f0;
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            border-color: var(--accent-light);
-        }
-        
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #dbeafe, #ede9fe);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.3s;
-        }
-        
-        .service-card:hover .service-icon {
-            background: var(--gradient);
-            transform: scale(1.1);
-        }
-        
-        .service-card:hover .service-icon i {
-            color: white;
-        }
-        
-        .service-icon i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            transition: all 0.3s;
-        }
-        
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .service-card p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-        
-        .service-card a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: all 0.3s;
-        }
-        
-        .service-card a:hover {
-            color: var(--accent);
-            gap: 10px;
-        }
-        
-        /* Technologies Section */
-        .tech {
-            background: var(--light-gray);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .tech::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 70%;
-            height: 140%;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .tech-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-        
-        .tech-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .tech-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .tech-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-        
-        /* Team Section */
-        .team {
-            background-color: white;
-            position: relative;
-        }
-        
-        .team::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f1f5f9" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,261.3C672,256,768,224,864,197.3C960,171,1056,149,1152,165.3C1248,181,1344,235,1392,261.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            z-index: 0;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .team-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-            position: relative;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .team-img {
-            height: 280px;
-            background: linear-gradient(135deg, #dbeafe, #ede9fe);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .team-img::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .team-card:hover .team-img::before {
-            opacity: 0.8;
-        }
-        
-        .team-img i {
-            font-size: 6rem;
-            color: var(--primary);
-            z-index: 1;
-            transition: all 0.3s;
-        }
-        
-        .team-card:hover .team-img i {
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        .team-info {
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .team-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .team-info p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background: var(--gradient);
-            color: white;
-            padding: 100px 0;
-            position: relative;
-        }
-        
-        .testimonials::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,229.3C672,256,768,288,864,277.3C960,267,1056,213,1152,186.7C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            z-index: 0;
-        }
-        
-        .testimonial-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            margin: 0 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .testimonial i {
-            font-size: 2.5rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .testimonial p {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-        
-        .client {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .client-title {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-gray);
-            position: relative;
-        }
-        
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .contact-item i {
-            font-size: 1.4rem;
-            min-width: 30px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .contact-text {
-            line-height: 1.6;
-        }
-        
-        .contact-text a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .contact-text a:hover {
-            color: var(--accent);
-        }
-        
-        .contact-form {
-            flex: 1;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .contact-form h3 {
-            color: var(--secondary);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--secondary);
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 20px;
-            border: 1px solid #cbd5e1;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: #f8fafc;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            background: white;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            padding: 80px 0;
-            position: relative;
-        }
-        
-        .cta::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,229.3C672,256,768,288,864,277.3C960,267,1056,213,1152,186.7C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            z-index: 0;
-        }
-        
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .light-button {
-            background: white;
-            color: var(--primary);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: var(--shadow);
-        }
-        
-        .light-button:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 80px 0 30px;
-            position: relative;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 12px;
-            font-weight: 600;
-        }
-        
-        .footer-col h3::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .footer-col p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-light);
-            transform: translateX(5px);
-        }
-        
-        .footer-links a i {
-            width: 24px;
-            text-align: center;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-            font-size: 0.95rem;
-        }
-        
-        /* WhatsApp Chat Button */
-        .whatsapp-chat {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        
-        .whatsapp-button {
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-button:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
-        
-        .whatsapp-text {
-            background: white;
-            color: #075E54;
-            padding: 10px 18px;
-            border-radius: 30px;
-            margin-bottom: 15px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            font-weight: 600;
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-        
-        .whatsapp-chat:hover .whatsapp-text {
-            display: block;
-        }
-        
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-            }
-            
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 50px;
-                text-align: center;
-            }
-            
-            .hero-buttons, .stats {
-                justify-content: center;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            section {
-                padding: 80px 0;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .cta h2 {
-                font-size: 2.3rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- WhatsApp Chat Button -->
-    <div class="whatsapp-chat">
-        <div class="whatsapp-text">Need DevOps help? Chat with us!</div>
-        <a href="https://wa.me/917983520199" class="whatsapp-button" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-cloud"></i>
-                    <span>Winds Cloud</span>
-                </a>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#tech">Technologies</a>
-                    <a href="#team">Team</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <a href="#contact" class="cta-button">Get Started</a>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+        /* Use a monospaced font for the hero section to mimic a terminal */
+        .hero-title {
+            font-family: 'Roboto Mono', monospace;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        }
+
+        /* Custom Scrollbar for a more themed look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00cc00;
+        }
+
+        /* Custom glow effect for interactive elements */
+        .glow-button {
+            box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+            transform: translateY(-2px);
+        }
+
+        /* Logo SVG styling based on the user's image */
+        .new-logo-svg {
+            animation: pulse 2s infinite ease-in-out;
+            font-family: 'Poppins', sans-serif;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Testimonial slider */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .testimonial-card {
+            background: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.5s ease-in-out;
+            min-height: 250px;
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .testimonial-card.active {
+            transform: translateX(0);
+            opacity: 1;
+            position: relative;
+        }
+
+        .testimonial-card.next {
+            transform: translateX(100%);
+        }
+
+        .testimonial-card.prev {
+            transform: translateX(-100%);
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            position: relative;
+            border: 1px solid #00ff00;
+        }
+
+        .close-btn {
+            color: #00ff00;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00ff00;
+            color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-link {
+            transition: color 0.3s, transform 0.3s;
+        }
+        .social-link:hover {
+            color: #00ff00;
+            transform: translateY(-5px);
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        }
+
+    </style>
+
+    <!-- START: Google tag (gtag.js) script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STN8PDY0SE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-STN8PDY0SE');
+    </script>
+    <!-- END: Google tag (gtag.js) script -->
+
+</head>
+<body class="text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-[#1e1e1e] shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- New SVG Logo based on user's image -->
+            <a href="#home" class="flex items-center space-x-2">
+                <svg class="w-16 h-16 new-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="#e8d93f"/>
+                    <circle cx="100" cy="100" r="80" fill="#141414" />
+                    <text x="100" y="85" font-size="30" font-weight="bold" text-anchor="middle" fill="#e8d93f" font-family="Poppins">IT</text>
+                    <text x="100" y="125" font-size="30" font-weight="bold" text-anchor="middle" fill="#e8d93f" font-family="Poppins">School</text>
+                </svg>
+                <span class="text-2xl font-bold text-[#00ff00] font-mono hidden md:block">IT School</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-400 hover:text-[#00ff00] transition-colors duration-300">About Us</a>
+                <a href="#why-choose-us" class="text-gray-400 hover:text-[#00ff00] transition-colors duration-300">Why Us?</a>
+                <a href="#courses" class="text-gray-400 hover:text-[#00ff00] transition-colors duration-300">Courses</a>
+                <a href="#testimonials" class="text-gray-400 hover:text-[#00ff00] transition-colors duration-300">Testimonials</a>
+                <a href="#contact" class="text-gray-400 hover:text-[#00ff00] transition-colors duration-300">Contact Us</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-[#00ff00]">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1e1e1e] shadow-lg border-t border-gray-800">
+            <a href="#about" class="block px-4 py-2 text-gray-400 hover:bg-[#2a2a2a]">About Us</a>
+            <a href="#why-choose-us" class="block px-4 py-2 text-gray-400 hover:bg-[#2a2a2a]">Why Us?</a>
+            <a href="#courses" class="block px-4 py-2 text-gray-400 hover:bg-[#2a2a2a]">Courses</a>
+            <a href="#testimonials" class="block px-4 py-2 text-gray-400 hover:bg-[#2a2a2a]">Testimonials</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-400 hover:bg-[#2a2a2a]">Contact Us</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Transform Your Infrastructure with <span class="hero-highlight">DevOps Excellence</span></h1>
-                    <p>Winds Cloud Technologies provides enterprise-grade DevOps solutions to accelerate deployment, enhance security, and optimize cloud infrastructure for businesses of all sizes.</p>
-                    <div class="hero-buttons">
-                        <a href="#services" class="cta-button">Explore Services</a>
-                        <a href="#contact" class="outline-button">Schedule Consultation</a>
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>99%</h3>
-                            <p>Client Satisfaction</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>24/7</h3>
-                            <p>Support Available</p>
-                        </div>
-                    </div>
+    <section id="home" class="bg-[#000000] text-[#00ff00] py-32 md:py-48 flex items-center justify-center min-h-screen">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 font-poppins drop-shadow-lg text-white">
+                Welcome to Education Beginner's IT School
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl font-light mb-2 max-w-3xl mx-auto drop-shadow-sm font-poppins text-[#00ff00]">
+                ज्ञानं परमं ध्येयम्
+            </p>
+            <p class="text-sm md:text-xl lg:text-2xl font-light mb-8 max-w-3xl mx-auto drop-shadow-sm font-mono text-gray-300">
+                हिन्दी में प्रशिक्षण प्रदान कराने वाली प्रथम संस्था
+            </p>
+            <a href="#courses" class="bg-[#00ff00] text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#00cc00] transition duration-300 transform hover:scale-105 glow-button">
+                Explore Courses
+            </a>
+        </div>
+    </section>
+
+    <!-- Tech Stack Banner -->
+    <section class="bg-gray-900 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold text-[#00ff00] mb-8 font-mono">Our Expertise</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8 justify-items-center mb-8">
+                <div class="flex flex-col items-center text-gray-300"><i class="fab fa-python text-5xl text-yellow-400"></i><span class="mt-2 text-sm">Python</span></div>
+                <div class="flex flex-col items-center text-gray-300"><i class="fab fa-java text-5xl text-red-500"></i><span class="mt-2 text-sm">Java</span></div>
+                <div class="flex flex-col items-center text-gray-300"><i class="fab fa-aws text-5xl text-orange-500"></i><span class="mt-2 text-sm">AWS</span></div>
+                <div class="flex flex-col items-center text-gray-300"><span class="text-4xl font-mono text-orange-500">OCI</span><span class="mt-2 text-sm">Cloud</span></div>
+                <div class="flex flex-col items-center text-gray-300">
+                    <svg class="h-12 w-12 text-blue-400" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <path d="M57.65 120L0 102.73L2.64 69.24L31.64 63.6L57.65 120Z" style="fill:#3274E6"/><path d="M57.65 120L31.64 63.6L2.64 69.24L31.96 46.5L108.62 38.64L57.65 120Z" style="fill:#049DE3"/><path d="M57.65 120L31.96 46.5L108.62 38.64L57.65 120Z" style="fill:#05A1EC"/><path d="M31.96 46.5L2.64 69.24L0 102.73L31.96 46.5Z" style="fill:#2489D8"/><path d="M57.65 0L120 17.27L117.36 50.76L88.36 56.4L57.65 0Z" style="fill:#3274E6"/><path d="M57.65 0L88.36 56.4L117.36 50.76L88.04 73.5L11.38 81.36L57.65 0Z" style="fill:#049DE3"/><path d="M57.65 0L88.04 73.5L11.38 81.36L57.65 0Z" style="fill:#05A1EC"/><path d="M88.04 73.5L117.36 50.76L120 17.27L88.04 73.5Z" style="fill:#2489D8"/>
+                    </svg>
+                    <span class="mt-2 text-sm">Azure</span>
                 </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cloud Infrastructure" class="animate__animated animate__fadeInRight">
+                <div class="flex flex-col items-center text-gray-300"><i class="fab fa-docker text-5xl text-blue-400"></i><span class="mt-2 text-sm">Docker</span></div>
+                <div class="flex flex-col items-center text-gray-300"><i class="fab fa-html5 text-5xl text-orange-500"></i><span class="mt-2 text-sm">HTML</span></div>
+                <div class="flex flex-col items-center text-gray-300"><i class="fab fa-react text-5xl text-blue-500 animate-spin"></i><span class="mt-2 text-sm">React</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-[#1a1a1a] py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://placehold.co/600x400/4361ee/ffffff?text=Education+Beginner's+IT+School" alt="Education Beginner's IT School" class="rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#00ff00] mb-6 font-mono">&gt; About Our Institute</h2>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Opened in 2022, Education Beginner's IT School provides high-quality IT training for beginners at a low price. We are committed to making IT education accessible to everyone. Our training is provided in Hindi to ensure students can learn in a comfortable and familiar language.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        We offer a variety of courses, from fundamental programming to advanced DevOps and Cloud technologies, helping students become "zero to hero."
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our DevOps Services</h2>
-                <p>Comprehensive solutions to streamline your development and operations lifecycle</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card animate__animated animate__fadeInUp">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <h3>Cloud Migration</h3>
-                    <p>Seamless transition to AWS, Azure, or GCP with zero downtime and optimized architecture.</p>
-                    <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="bg-[#1e1e1e] py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#00ff00] mb-12 font-mono">&gt; Why Choose Us?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-[#2a2a2a] p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-[#00ff00]">
+                    <div class="text-5xl text-[#00ff00] mb-4"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Low-Cost Training</h3>
+                    <p class="text-gray-400">We offer competitive pricing to make quality IT education accessible to everyone.</p>
                 </div>
-                <div class="service-card animate__animated animate__fadeInUp">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>CI/CD Automation</h3>
-                    <p>End-to-end pipeline implementation with Jenkins, GitLab CI, or GitHub Actions.</p>
-                    <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
+                <div class="bg-[#2a2a2a] p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-[#00ff00]">
+                    <div class="text-5xl text-[#00ff00] mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Expert Instructors</h3>
+                    <p class="text-gray-400">Learn from experienced professionals who are passionate about teaching and technology.</p>
                 </div>
-                <div class="service-card animate__animated animate__fadeInUp">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Infrastructure Security</h3>
-                    <p>Comprehensive cloud security audits and implementation of best practices.</p>
-                    <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card animate__animated animate__fadeInUp">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Cost Optimization</h3>
-                    <p>Reduce cloud spending by up to 60% with intelligent resource management.</p>
-                    <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card animate__animated animate__fadeInUp">
-                    <div class="service-icon">
-                        <i class="fas fa-cubes"></i>
-                    </div>
-                    <h3>Container Orchestration</h3>
-                    <p>Kubernetes solutions for scalable, resilient application deployment.</p>
-                    <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card animate__animated animate__fadeInUp">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Managed DevOps</h3>
-                    <p>24/7 monitoring, maintenance, and support for your infrastructure.</p>
-                    <a href="#">Learn more <i class="fas fa-arrow-right"></i></a>
+                <div class="bg-[#2a2a2a] p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-[#00ff00]">
+                    <div class="text-5xl text-[#00ff00] mb-4"><i class="fas fa-language"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Training in Hindi</h3>
+                    <p class="text-gray-400">All our courses are taught in Hindi to ensure a comfortable and effective learning environment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technologies Section -->
-    <section class="tech" id="tech">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Technology Stack</h2>
-                <p>Expertise across the leading cloud platforms and DevOps tools</p>
-            </div>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <h3>AWS</h3>
-                    <p>Certified Solutions Architects</p>
+    <!-- Courses Section -->
+    <section id="courses" class="py-16 md:py-24 bg-[#1a1a1a]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#00ff00] mb-12 font-mono">&gt; Our Courses</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course Cards -->
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('Python Programming')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fab fa-python"></i></div><h3 class="text-xl font-semibold text-gray-100">Python Programming</h3></div>
+                    <p class="text-gray-400 mb-4">Our Python course is designed for beginners. It includes 50 hours of training in Hindi, delivered online via Zoom.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">50 Hours</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Online</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">INR 4000</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-microsoft"></i>
-                    </div>
-                    <h3>Azure</h3>
-                    <p>DevOps & Solutions Experts</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('Data Structures')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fas fa-list-ol"></i></div><h3 class="text-xl font-semibold text-gray-100">Data Structures</h3></div>
+                    <p class="text-gray-400 mb-4">Master the fundamentals of data structures to build efficient and scalable software solutions. This course is for all levels.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Algorithms</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Problem Solving</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Online</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-google"></i>
-                    </div>
-                    <h3>Google Cloud</h3>
-                    <p>Certified Engineers</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('Android Programming')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fab fa-android"></i></div><h3 class="text-xl font-semibold text-gray-100">Android Programming</h3></div>
+                    <p class="text-gray-400 mb-4">Learn to build mobile applications for Android using modern tools and best practices. No prior experience needed.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Mobile Dev</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Kotlin/Java</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Online</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-docker"></i>
-                    </div>
-                    <h3>Docker</h3>
-                    <p>Containerization Specialists</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('C/C++')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fas fa-terminal"></i></div><h3 class="text-xl font-semibold text-gray-100">C/C++ Programming</h3></div>
+                    <p class="text-gray-400 mb-4">Build a strong foundation in programming with our C/C++ course, essential for competitive programming and systems development.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Low-level</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Fundamentals</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Online</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-jenkins"></i>
-                    </div>
-                    <h3>Jenkins</h3>
-                    <p>CI/CD Pipeline Experts</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('Linux Essentials')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fab fa-linux"></i></div><h3 class="text-xl font-semibold text-gray-100">Linux Essentials</h3></div>
+                    <p class="text-gray-400 mb-4">A foundational course on Linux operating systems, covering command-line interface, shell scripting, and system administration.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">OS</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Shell Scripting</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Admin</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3>GitHub Actions</h3>
-                    <p>Workflow Automation</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('Docker & Kubernetes')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fab fa-docker"></i></div><h3 class="text-xl font-semibold text-gray-100">Docker & Kubernetes</h3></div>
+                    <p class="text-gray-400 mb-4">Learn containerization with Docker and orchestration with Kubernetes to manage your applications at scale.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Containers</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Orchestration</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Cloud</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Terraform</h3>
-                    <p>Infrastructure as Code</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('AWS Cloud')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fab fa-aws"></i></div><h3 class="text-xl font-semibold text-gray-100">AWS Cloud</h3></div>
+                    <p class="text-gray-400 mb-4">Get hands-on experience with Amazon Web Services, covering core services like EC2, S3, and VPC for cloud infrastructure.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Cloud</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">AWS</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Solutions</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <i class="fab fa-linux"></i>
-                    </div>
-                    <h3>Linux Administration</h3>
-                    <p>RedHat Certified Engineers</p>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-[#00ff00]" onclick="openCourseModal('Azure Cloud')">
+                    <div class="flex items-center space-x-4 mb-4"><div class="text-3xl text-[#00ff00]"><i class="fas fa-cloud"></i></div><h3 class="text-xl font-semibold text-gray-100">Azure Cloud</h3></div>
+                    <p class="text-gray-400 mb-4">Learn Microsoft Azure fundamentals to build, deploy, and manage applications and services through the cloud.</p>
+                    <div class="flex flex-wrap gap-2 mb-4"><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Cloud</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Azure</span><span class="bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full">Microsoft</span></div>
+                    <button class="block w-full text-center bg-[#00ff00] text-gray-900 font-bold py-2 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">View Details</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Team</h2>
-                <p>Meet the DevOps experts behind Winds Cloud Technologies</p>
+    <!-- Discount Code Section (NEW) -->
+    <section id="discount" class="bg-[#1e1e1e] py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#00ff00] mb-8 font-mono">&gt; Have a Discount Code?</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 max-w-xl mx-auto">
+                <input type="text" id="voucher-code-input" placeholder="Enter your code here" class="w-full md:w-2/3 p-3 rounded-lg border-2 border-[#00ff00] bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#00cc00]">
+                <button id="apply-voucher-btn" class="w-full md:w-1/3 bg-[#00ff00] text-gray-900 font-bold py-3 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">
+                    Apply Code
+                </button>
             </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-img">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="team-info">
-                        <h3>Pankaj Saini (Founder)</h3>
-                        <p>DevOps Engineer & Solutions Architect</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-img">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="team-info">
-                        <h3>Sahil Paras</h3>
-                        <p>Cloud Infrastructure Architect</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-aws"></i></a>
-                            <a href="#"><i class="fab fa-microsoft"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-img">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="team-info">
-                        <h3>Akshay Kumar</h3>
-                        <p>Operations & Client Success Manager</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p id="voucher-message" class="mt-4 text-center"></p>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: white;">Client Testimonials</h2>
-                <p style="color: rgba(255, 255, 255, 0.8);">What our clients say about our DevOps solutions</p>
-            </div>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Winds Cloud transformed our deployment process. Our release cycles went from 2 weeks to daily deployments with zero downtime. Their Kubernetes implementation was flawless."</p>
-                    <div class="client">Rajesh Sharma</div>
-                    <div class="client-title">CTO at TechInnovate Solutions</div>
+    <section id="testimonials" class="bg-[#1a1a1a] py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#00ff00] mb-12 font-mono">&gt; Student Testimonials</h2>
+            <div class="relative max-w-2xl mx-auto">
+                <div id="testimonials-container" class="testimonials-container">
+                    <!-- Testimonial cards will be injected here by JavaScript -->
+                </div>
+                <div class="flex justify-center mt-8 space-x-4">
+                    <button id="prev-testimonial" class="bg-[#00ff00] text-gray-900 p-3 rounded-full hover:bg-[#00cc00] transition duration-300 glow-button"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-testimonial" class="bg-[#00ff00] text-gray-900 p-3 rounded-full hover:bg-[#00cc00] transition duration-300 glow-button"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch to discuss your DevOps requirements</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Let's Transform Your Infrastructure</h2>
-                    <p>Whether you need cloud migration, CI/CD implementation, or full DevOps transformation, our team is ready to help you achieve operational excellence.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-text">
-                                <strong>Our Office</strong><br>
-                                Mandi Dhanaura, District Amroha, Uttar Pradesh, India
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div class="contact-text">
-                                <strong>Phone/WhatsApp</strong><br>
-                                <a href="tel:+917983520199">+91 79835 20199</a><br>
-                                <a href="tel:+917060332724">+91 70603 32724</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="contact-text">
-                                <strong>Email</strong><br>
-                                <a href="mailto:contact@windscloud.tech">contact@windscloud.tech</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <div class="contact-text">
-                                <strong>LinkedIn</strong><br>
-                                <a href="https://www.linkedin.com/company/windscloudtechnologiespvtltd/" target="_blank">Connect with us</a>
-                            </div>
-                        </div>
+    <section id="contact" class="bg-[#1e1e1e] py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#00ff00] mb-8 font-mono">&gt; Contact Us</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left md:max-w-4xl mx-auto">
+                <div>
+                    <div class="bg-[#2a2a2a] rounded-xl shadow-md p-6 mb-4 border border-[#00ff00]">
+                        <h3 class="text-2xl font-semibold text-[#00ff00] mb-4 flex items-center"><i class="fas fa-map-marker-alt text-[#00ff00] mr-3"></i>Our Address</h3>
+                        <p class="text-gray-400">Uttar Pradesh, Moradabad, India</p>
+                    </div>
+                    <div class="bg-[#2a2a2a] rounded-xl shadow-md p-6 mb-4 border border-[#00ff00]">
+                        <h3 class="text-2xl font-semibold text-[#00ff00] mb-4 flex items-center"><i class="fas fa-phone-alt text-[#00ff00] mr-3"></i>Call or WhatsApp</h3>
+                        <p class="text-gray-400 mb-2">Call: <a href="tel:7983520199" class="text-[#00ff00] hover:underline">7983520199</a></p>
+                        <p class="text-gray-400">WhatsApp: <a href="https://wa.me/917060332724" class="text-[#00ff00] hover:underline" target="_blank">7060332724</a></p>
+                    </div>
+                    <div class="bg-[#2a2a2a] rounded-xl shadow-md p-6 border border-[#00ff00]">
+                        <h3 class="text-2xl font-semibold text-[#00ff00] mb-4 flex items-center"><i class="fas fa-envelope text-[#00ff00] mr-3"></i>Email Support</h3>
+                        <p class="text-gray-400"><a href="mailto:educationbeginneritschool@gmail.com" class="text-[#00ff00] hover:underline">educationbeginneritschool@gmail.com</a></p>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Send us a message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Enter your name" required>
+                <div class="bg-[#2a2a2a] rounded-xl shadow-md p-6 border border-[#00ff00]">
+                    <h3 class="text-2xl font-semibold text-[#00ff00] mb-4">Send us a message</h3>
+                    <!-- यहाँ आपका नया Formspree फॉर्म है -->
+                    <form id="contact-form" action="https://formspree.io/f/xvgqlokd" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 border border-[#00ff00] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ff00] bg-gray-900 text-gray-100" placeholder="Your Name" required>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Enter your email" required>
+                        <div>
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-[#00ff00] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ff00] bg-gray-900 text-gray-100" placeholder="Your Email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" class="form-group input">
-                                <option value="">Select a service</option>
-                                <option value="cloud">Cloud Migration</option>
-                                <option value="ci_cd">CI/CD Implementation</option>
-                                <option value="security">Infrastructure Security</option>
-                                <option value="kubernetes">Kubernetes Solutions</option>
-                                <option value="managed">Managed DevOps</option>
-                                <option value="other">Other</option>
-                            </select>
+                        <div>
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full p-3 border border-[#00ff00] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ff00] bg-gray-900 text-gray-100" placeholder="Your Message" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" placeholder="How can we help you?" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="w-full bg-[#00ff00] text-gray-900 font-bold py-3 rounded-lg hover:bg-[#00cc00] transition duration-300 glow-button">Send Message</button>
                     </form>
+                    <!-- फॉर्म यहाँ समाप्त होता है -->
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your DevOps?</h2>
-                <p>Join hundreds of companies who have accelerated their development with our solutions</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="cta-button">Start Your Project</a>
-                    <a href="tel:+917983520199" class="light-button">
-                        <i class="fas fa-phone-alt"></i> Call Now
-                    </a>
+            
+            <!-- Social Media Links -->
+            <div class="mt-12 bg-[#2a2a2a] rounded-xl shadow-md p-6 border border-[#00ff00]">
+                <h3 class="text-2xl font-semibold text-[#00ff00] mb-4">Connect with us</h3>
+                <div class="flex justify-center space-x-6 text-gray-400 text-4xl">
+                    <!-- YouTube link from previous code, kept as is -->
+                    <a href="https://www.youtube.com/@EducationBeginnersITSchool" class="social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <!-- WhatsApp link from previous code, kept as is -->
+                    <a href="https://wa.me/917060332724" class="social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <!-- Updated Facebook link -->
+                    <a href="https://www.facebook.com/people/Education-Beginners-It-School/61553797975138" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <!-- Updated Instagram link -->
+                    <a href="https://instagram.com/educationbeginneritschool" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <!-- Updated LinkedIn link -->
+                    <a href="https://www.linkedin.com/in/education-beginner-it-school" class="social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <a href="#" class="logo" style="color: white; font-size: 1.8rem;">
-                        <i class="fas fa-cloud"></i>
-                        <span>Winds Cloud</span>
-                    </a>
-                    <p>Providing cutting-edge DevOps solutions to help businesses thrive in the cloud era. Enterprise-grade infrastructure with startup agility.</p>
-                    <div class="social-links" style="justify-content: flex-start; margin-top: 25px; gap: 15px;">
-                        <a href="https://www.linkedin.com/company/windscloudtechnologiespvtltd/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="#tech"><i class="fas fa-chevron-right"></i> Technologies</a></li>
-                        <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cloud Migration</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> CI/CD Implementation</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Infrastructure Security</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kubernetes Solutions</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Managed DevOps</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Mandi Dhanaura, Amroha</a></li>
-                        <li><a href="tel:+917983520199"><i class="fab fa-whatsapp"></i> +91 79835 20199</a></li>
-                        <li><a href="tel:+917060332724"><i class="fab fa-whatsapp"></i> +91 70603 32724</a></li>
-                        <li><a href="mailto:contact@windscloud.tech"><i class="fas fa-envelope"></i> contact@windscloud.tech</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Winds Cloud Technologies Pvt Ltd. All rights reserved. | CIN: U72900UP2023PTC181306</p>
-            </div>
+    <footer class="bg-black text-gray-500 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Education Beginner's IT School. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Course Details Modal -->
+    <div id="course-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title" class="text-3xl font-bold text-[#00ff00] mb-4"></h3>
+            <p id="modal-description" class="text-gray-300 leading-relaxed mb-4"></p>
+            <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+            <a id="modal-whatsapp-link" href="#" target="_blank" class="block w-full text-center bg-green-500 text-white font-bold py-3 rounded-lg hover:bg-green-600 transition duration-300 glow-button">
+                Join Batch on WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <!-- Back to top button -->
+    <button id="back-to-top" class="show" aria-label="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if(this.getAttribute('href') === '#') return;
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- HERO SECTION TEXT ---
+            // The hero section is now static and no longer uses a typing animation.
+            
+            // --- COURSE MODAL DATA & LOGIC ---
+            const courses = {
+                'Python Programming': {
+                    description: 'Our Python course is designed for beginners. It includes 50 hours of training in Hindi, delivered online via Zoom. A course completion certificate and one-year access to recordings are provided.',
+                    tags: ['50 Hours', 'Online', 'INR 4000'],
+                    whatsappLink: 'https://chat.whatsapp.com/DK15pTxDdMwKzLWRprfuZa'
+                },
+                'Data Structures': {
+                    description: 'Master the fundamentals of data structures to build efficient and scalable software solutions. This course is for all levels, taught in Hindi.',
+                    tags: ['Data Structures', 'Algorithms', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/BfwJJqNdOQW8JVDJzDIeck'
+                },
+                'Android Programming': {
+                    description: 'Learn to build mobile applications for Android using modern tools and best practices. No prior experience is needed for this course taught in Hindi.',
+                    tags: ['Mobile Dev', 'Kotlin/Java', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/KfJ819MwMHfL9n4tDBt15z'
+                },
+                'C/C++ Programming': {
+                    description: 'Build a strong foundation in programming with our C/C++ course, essential for competitive programming and systems development. Taught in Hindi for easy understanding.',
+                    tags: ['C/C++', 'Fundamentals', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/J1yB9wNlF7c7TfEw4rJ3P4'
+                },
+                'Linux Essentials': {
+                    description: 'A foundational course on Linux operating systems, covering command-line interface, shell scripting, and system administration. Taught in Hindi.',
+                    tags: ['OS', 'Shell Scripting', 'Admin', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/K1zV8aNlF8c8UfGz5sH4Q5'
+                },
+                'Docker & Kubernetes': {
+                    description: 'Learn containerization with Docker and orchestration with Kubernetes to manage your applications at scale. Taught in Hindi to make it easy to learn.',
+                    tags: ['Containers', 'Orchestration', 'Cloud', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/L2wW9xNlG9c9VgHa6tI5R6'
+                },
+                'AWS Cloud': {
+                    description: 'Get hands-on experience with Amazon Web Services, covering core services like EC2, S3, and VPC for cloud infrastructure. Taught in Hindi.',
+                    tags: ['Cloud', 'AWS', 'Solutions', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/M3xX0yNlH0d0WhIb7uJ6S7'
+                },
+                'Azure Cloud': {
+                    description: 'Learn Microsoft Azure fundamentals to build, deploy, and manage applications and services through the cloud. Taught in Hindi.',
+                    tags: ['Cloud', 'Azure', 'Microsoft', 'Hindi'],
+                    whatsappLink: 'https://chat.whatsapp.com/N4yY1zNlI1e1XiJc8vK7T8'
+                },
+                'DevOps & Cloud': {
+                    description: 'Learn essential DevOps tools and concepts including AWS, Docker, and Kubernetes. This course prepares you for a career in cloud and infrastructure management.',
+                    tags: ['AWS', 'Docker', 'Kubernetes'],
+                    whatsappLink: 'https://chat.whatsapp.com/BfwJJqNdOQW8JVDJzDIeck'
+                },
+                'HTML/CSS/JS': {
+                    description: 'Master the fundamentals of web development with our hands-on course covering HTML, CSS, and JavaScript. This is perfect for those starting their career in front-end development.',
+                    tags: ['Web Development', 'Beginner Friendly', 'Online'],
+                    whatsappLink: 'https://chat.whatsapp.com/KfJ819MwMHfL9n4tDBt15z'
+                }
+            };
+
+            const modal = document.getElementById('course-modal');
+            const closeBtn = document.querySelector('.close-btn');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalTags = document.getElementById('modal-tags');
+            const modalWhatsappLink = document.getElementById('modal-whatsapp-link');
+
+            window.openCourseModal = function(title) {
+                const course = courses[title];
+                if (!course) return;
                 
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if(window.innerWidth <= 768) {
-                        document.querySelector('.nav-links').classList.remove('active');
-                    }
+                modalTitle.textContent = title;
+                modalDescription.textContent = course.description;
+                
+                modalTags.innerHTML = '';
+                course.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'bg-gray-800 text-[#00ff00] text-xs font-medium px-2.5 py-0.5 rounded-full';
+                    span.textContent = tag;
+                    modalTags.appendChild(span);
+                });
+
+                modalWhatsappLink.href = course.whatsappLink;
+                modal.style.display = 'block';
+            }
+
+            closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+            window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } };
+
+            // --- MOBILE MENU LOGIC ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
+            });
+
+            // --- TESTIMONIALS CAROUSEL LOGIC ---
+            const testimonials = [
+                { quote: "I highly recommend Education Beginner's IT School. The DevOps curriculum is comprehensive and up-to-date. I felt well-prepared for the industry after completing the course.", author: "Ketan", source: "DevOps Engineer", linkedin: "https://www.linkedin.com/in/ketan--kumar" },
+                { quote: "The cloud administration course was a game-changer for my career. The practical knowledge and expert guidance provided here were instrumental in landing my current role.", author: "Sahil Paras", source: "Cloud Administrator", linkedin: "https://www.linkedin.com/in/sahil-paras2106" },
+                { quote: "The comprehensive training in cloud engineering prepared me for the challenges of the industry. The instructors are highly knowledgeable and supportive.", author: "Yatin Kumar", source: "Cloud Engineer", linkedin: "https://www.linkedin.com/in/yatin-kumar-5a4507211" },
+                { quote: "The Python course was excellent! The instructor's clear explanations and hands-on approach made complex topics easy to understand. Highly recommended for beginners!", author: "Priya Sharma", source: "Python Batch Student" },
+                { quote: "I learned so much about AWS and Docker in the DevOps course. The real-world examples were incredibly helpful, and the support was fantastic. Great value for money!", author: "Rahul Singh", source: "DevOps Batch Student" },
+                { quote: "This institute provides top-quality training at an affordable price. The Hindi-language instruction was a huge plus, making it easy to focus on learning. Thank you!", author: "Anjali Gupta", source: "Data Structures Student" }
+            ];
+
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+            let currentTestimonial = 0;
+
+            function renderTestimonial() {
+                testimonialsContainer.innerHTML = '';
+                const testimonial = testimonials[currentTestimonial];
+                let linkedinLink = testimonial.linkedin ? `<a href="${testimonial.linkedin}" target="_blank" class="text-[#00ff00] hover:text-[#00cc00] transition duration-300 ml-2"><i class="fab fa-linkedin"></i></a>` : '';
+                
+                const card = document.createElement('div');
+                card.className = 'testimonial-card active';
+                card.innerHTML = `<i class="fas fa-quote-left text-4xl text-[#00ff00] mb-4"></i>
+                                <p class="text-lg italic text-gray-400 leading-relaxed mb-4">"${testimonial.quote}"</p>
+                                <div class="text-right"><p class="font-semibold text-gray-100">${testimonial.author}</p><p class="text-sm text-gray-500">${testimonial.source}${linkedinLink}</p></div>`;
+                testimonialsContainer.appendChild(card);
+            }
+
+            function showNextTestimonial() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                renderTestimonial();
+            }
+
+            function showPrevTestimonial() {
+                currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                renderTestimonial();
+            }
+
+            renderTestimonial();
+            nextButton.addEventListener('click', showNextTestimonial);
+            prevButton.addEventListener('click', showPrevTestimonial);
+
+            // --- BACK TO TOP BUTTON LOGIC ---
+            const backToTopBtn = document.getElementById("back-to-top");
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
                 }
             });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                
-                // Show success message
-                alert(`Thank you ${name}! We've received your message and will contact you at ${email} shortly.`);
-                
-                // Reset form
-                contactForm.reset();
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-        }
-        
-        // Animation on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__fadeInUp');
-                    observer.unobserve(entry.target);
+
+            // --- DISCOUNT VOUCHER LOGIC (NEW) ---
+            const voucherInput = document.getElementById('voucher-code-input');
+            const applyVoucherBtn = document.getElementById('apply-voucher-btn');
+            const voucherMessage = document.getElementById('voucher-message');
+            
+            const validVoucherCode = 'NEWHORIZONS'; // This is the hardcoded voucher code.
+            
+            applyVoucherBtn.addEventListener('click', () => {
+                const enteredCode = voucherInput.value.toUpperCase().trim();
+                
+                if (enteredCode === validVoucherCode) {
+                    voucherMessage.textContent = 'Success! Discount code applied. This would be processed at checkout.';
+                    voucherMessage.className = 'mt-4 text-center text-[#00ff00] font-bold';
+                    voucherInput.disabled = true;
+                    applyVoucherBtn.disabled = true;
+                } else {
+                    voucherMessage.textContent = 'Invalid code. Please try again.';
+                    voucherMessage.className = 'mt-4 text-center text-red-500 font-bold';
                 }
             });
-        }, observerOptions);
-        
-        document.querySelectorAll('.service-card, .tech-card, .team-card').forEach(card => {
-            observer.observe(card);
-        });
-        
-        // WhatsApp button hover effect
-        document.querySelector('.whatsapp-button').addEventListener('mouseenter', function() {
-            document.querySelector('.whatsapp-text').style.display = 'block';
-        });
-        
-        document.querySelector('.whatsapp-chat').addEventListener('mouseleave', function() {
-            document.querySelector('.whatsapp-text').style.display = 'none';
         });
     </script>
 </body>
